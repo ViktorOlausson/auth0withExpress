@@ -1,0 +1,46 @@
+.profile-skeleton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: min(100%, 320px);
+  margin: 0 auto;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 37%, #e5e7eb 63%);
+  background-size: 400% 100%;
+  border-radius: 6px;
+  animation: skeleton-loading 1.4s ease infinite;
+}
+
+.skeleton-title {
+  width: 220px;
+  height: 32px;
+}
+
+.skeleton-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.skeleton-email {
+  width: 260px;
+  height: 24px;
+}
+
+.skeleton-button {
+  width: 86px;
+  height: 36px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0 50%;
+  }
+}

@@ -1,5 +1,17 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import "./Profile.css";
+
+const ProfileSkeleton = () => {
+  return (
+    <div className="profile-skeleton" aria-label="Loading profile">
+      <div className="skeleton skeleton-title" />
+      <div className="skeleton skeleton-avatar" />
+      <div className="skeleton skeleton-email" />
+      <div className="skeleton skeleton-button" />
+    </div>
+  );
+};
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -20,7 +32,12 @@ const Profile = () => {
     };
     fetchProfile();
   }, []);
-  if (loading) return <p>Loading ...</p>;
+
+  const clickLogOut = async () => {
+    window.location.href = "http://localhost:3000/logout";
+  };
+
+  if (loading) return <ProfileSkeleton />;
   if (!user) return <p>Not logged in.</p>;
   return (
     <div>
@@ -35,6 +52,8 @@ const Profile = () => {
       <h4>
         <a href={`mailto:${user.email}`}>{user.email}</a>
       </h4>
+
+      <button onClick={clickLogOut}>Logout</button>
     </div>
   );
 };
