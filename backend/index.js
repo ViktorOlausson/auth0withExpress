@@ -17,8 +17,8 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-  // return res.oidc.login({ returnTo: "http://localhost:5173/profile" });
-  res.send(req.oidc.isAuthenticated() ? "Logged in" : "Logged out");
+  return res.oidc.login({ returnTo: "http://localhost:5173/profile" });
+  // res.send(req.oidc.isAuthenticated() ? "Logged in" : "Logged out");
 });
 
 app.get("/profile", requiresAuth(), (req, res) => {

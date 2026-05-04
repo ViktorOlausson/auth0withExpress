@@ -29,9 +29,12 @@ const Profile = () => {
         <img
           src={user.picture}
           alt={user.name}
-          style={{ width: 80, borderRadius: "50" }}
+          style={{ width: 80, borderRadius: "50%" }}
         />
       )}
+      <h4>
+        <a href={`mailto:${user.email}`}>{user.email}</a>
+      </h4>
     </div>
   );
 };
