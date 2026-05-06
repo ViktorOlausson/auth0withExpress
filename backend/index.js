@@ -12,6 +12,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: "http://localhost:5173",
+    // origin: "http://localhost:9999",
     credentials: true,
   }),
 );
@@ -27,6 +28,16 @@ app.get("/profile", requiresAuth(), (req, res) => {
   } catch (error) {
     console.log(error);
   }
+});
+
+const books = [
+  { title: "harry P" },
+  { title: "harry Potter2" },
+  { title: "narnia" },
+];
+
+app.get("/books", (req, res) => {
+  res.send(books);
 });
 
 // Protected route
